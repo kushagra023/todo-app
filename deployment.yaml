@@ -1,19 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: todoapp-deployment
+  name: django-app
+  labels:
+    app: django-app
 spec:
-  replicas: 1
+  replicas: 2  # Adjust the number of replicas as needed
   selector:
     matchLabels:
-      app: todoapp
+      app: django-app
   template:
     metadata:
       labels:
-        app: todoapp
+        app: django-app
     spec:
       containers:
-      - name: todoapp
-        image: kushagraag/todoapp:latest
+      - name: django-app
+        image: kushagraag//todoapp:latest  # Replace with your actual Docker image tag
         ports:
         - containerPort: 8000
+        volumeMounts:
+        - name: app-data
+          mountPath: /app
+      volumes:
+      - name: app-data
+        emptyDir: {}
