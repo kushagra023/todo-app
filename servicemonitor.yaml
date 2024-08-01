@@ -9,7 +9,7 @@ spec:
     matchLabels:
       app: todoapp
   endpoints:
-  - port: 8000
+  - port: "8000"  # Change this to a string
     path: /metrics
   namespaceSelector:
     matchNames:
