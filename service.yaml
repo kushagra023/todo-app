@@ -4,6 +4,7 @@ metadata:
   name: todoapp-service
 spec:
   type: NodePort
+  externalTrafficPolicy: Local
   selector:
     app: todoapp
   ports:
