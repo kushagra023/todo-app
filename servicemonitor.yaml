@@ -5,12 +5,12 @@ metadata:
   labels:
     release: prometheus
 spec:
-  selector:
-    matchLabels:
-      app: todoapp
   endpoints:
-  - port: "8000"  # Change this to a string
-    path: /metrics
+  - path: /metrics
+    port: http  # Ensure this matches the name of the port in the Service spec
   namespaceSelector:
     matchNames:
     - default
+  selector:
+    matchLabels:
+      app: todoapp
