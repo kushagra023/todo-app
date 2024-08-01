@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: django-app
-        image: kushagraag//todoapp:latest  # Replace with your actual Docker image tag
+        image: kushagraag/todoapp:latest  # Replace with your actual Docker image tag
         ports:
         - containerPort: 8000
         volumeMounts:
