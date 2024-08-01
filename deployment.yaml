@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: django-app
-  labels:
-    app: django-app
+  name: todoapp-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: django-app
+      app: todoapp
   template:
     metadata:
       labels:
-        app: django-app
+        app: todoapp
     spec:
       containers:
-      - name: django-app
+      - name: todoapp
         image: kushagraag/todoapp:latest
         ports:
         - containerPort: 8000
