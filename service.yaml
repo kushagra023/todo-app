@@ -1,12 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: todoapp-service
+  name: django-app-service
 spec:
-  type: LoadBalancer
-  selector:
-    app: todoapp
+  type: NodePort
   ports:
-    - protocol: TCP
-      port: 8000
-      targetPort: 8000
+  - port: 80
+    targetPort: 8000
+    protocol: TCP
+    nodePort: 30000  # You can specify a port within the 30000-32767 range
+  selector:
+    app: django-app
