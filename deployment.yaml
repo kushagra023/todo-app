@@ -5,7 +5,7 @@ metadata:
   labels:
     app: django-app
 spec:
-  replicas: 2  # Adjust the number of replicas as needed
+  replicas: 2
   selector:
     matchLabels:
       app: django-app
@@ -16,12 +16,6 @@ spec:
     spec:
       containers:
       - name: django-app
-        image: kushagraag/todoapp:latest  # Replace with your actual Docker image tag
+        image: kushagraag/todoapp:latest
         ports:
         - containerPort: 8000
-        volumeMounts:
-        - name: app-data
-          mountPath: /app
-      volumes:
-      - name: app-data
-        emptyDir: {}
